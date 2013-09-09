@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <unistd.h>
+
 #include "instructs.h"
 
 int main(int argc, char* argv[]) {
     FILE *input;
     int opt;
+    char src[5000];
 
     // Parse options
     while ((opt = getopt(argc, argv, "")) != -1) {
@@ -24,10 +26,15 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    char read[5];
+    // Read from file until halt
+    int i = 0;
+    char c;
+    while ((c = fgetc(input)) != EOF) {
+        src[i++] = c;
+    }
 
-    fgets(read, 5, input);
+    fclose(input);
 
-    puts(read);
+    printf(src);
     return 0;
 }
