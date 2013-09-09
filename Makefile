@@ -1,7 +1,7 @@
 CC = gcc
 
-tasm: tasm.c
+tasm: tasm.c instructs.c
 	$(CC) $^ -o $@
 
-debug: tasm.c
+debug: tasm.c instructs.c
 	$(CC) $^ -g -o $@
