@@ -1,4 +1,4 @@
-CC = gcc
+CC = clang
 
 tasm: tasm.c instructs.c
 	$(CC) $^ -o $@
